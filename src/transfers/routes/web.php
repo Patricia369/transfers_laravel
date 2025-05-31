@@ -18,8 +18,14 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 Route::get('/', [AppController::class, 'index'])->name('home');
 Route::get('/login',function () {
-    return view('auth.login');
+    return view('login'); // llama a la vista de login  en auth.login 
 })->name('login');
+//register
+Route::get('/register',function () {
+    return view('register'); // llama a la vista de register  en register 
+})->name('register');
+
+
 Route::get('/home', function () {
   // Redirecciona a login si no hay sesión
   if (!session()->has('usuario')) {

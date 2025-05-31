@@ -18,9 +18,10 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
+    //revisar los campos  en entrada para register
     public function create(): View
     {
-        return view('auth.register');
+        return view('register');
     }
 
     /**
