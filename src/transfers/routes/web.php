@@ -25,6 +25,10 @@ Route::get('/register',function () {
     return view('register'); // llama a la vista de register  en register 
 })->name('register');
 
+// reserva
+Route::get('/reserva',function () {
+    return view('reserva'); // llama a la vista de reserva  en reserva 
+})->name('reserva');
 
 Route::get('/home', function () {
   // Redirecciona a login si no hay sesión
