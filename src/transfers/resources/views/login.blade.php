@@ -5,7 +5,7 @@
             <p class="text-gray-600 mt-2">Inicia sesión en tu cuenta</p>
         </div>
 
-        <form action="app/Http/Controllers/Auth/AuthenticatedSessionController.php?  controller=viajero&action=loginViajero" method="POST" class="space-y-5">
+        <form action="app/Http/Controllers/Auth/AuthenticatedSessionController.php?controller=viajero&action=loginViajero" method="POST" class="space-y-5">
             <input type="hidden" name="action" value="loginViajero">
 
             @if(session('error'))
