@@ -1,5 +1,14 @@
-<body class="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-800 via-gray-900 to-black">
-    <div class="bg-white p-8 rounded-xl shadow-xl w-full max-w-md">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Transfers</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="min-h-screen  items-center justify-center bg-gradient-to-r from-gray-800 via-gray-900 to-black p-4">
+
+    <div class="bg-white p-8 rounded-xl shadow-xl w-1/2 max-w-screen-md"> <!-- Responsive -->
         <div class="text-center mb-6">
             <h1 class="text-2xl font-bold text-gray-800">Bienvenido Transfers</h1>
             <p class="text-gray-500">Inicia sesión en tu cuenta</p>

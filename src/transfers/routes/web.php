@@ -21,9 +21,19 @@ Route::get('/login',function () {
     return view('login'); // llama a la vista de login  en auth.login 
 })->name('login');
 //register
+
 Route::get('/register',function () {
     return view('register'); // llama a la vista de register  en register 
 })->name('register');
+
+ //reserva
+ Route::get('/reserva', function () {
+     return view('reserva'); // llama a la vista de reserva
+ })->name('reserva');
+
+
+
+
 
 
 Route::get('/home', function () {
