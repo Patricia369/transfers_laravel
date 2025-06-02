@@ -21,12 +21,18 @@ class AuthenticatedSessionController extends Controller
         return view('login'); //auth.login
     }
 
+    
+    public function login(): View
+    {
+        return view('home'); //auth.login
+    }
+
     /**
      * Handle an incoming authentication request.
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        // $request->authenticate();
 
         $request->session()->regenerate();
 

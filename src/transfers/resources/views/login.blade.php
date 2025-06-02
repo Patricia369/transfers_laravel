@@ -14,8 +14,8 @@
             <p class="text-gray-600 mt-2">Inicia sesión en tu cuenta</p>
         </div>
 
-        <form action="app/Http/Controllers/Auth/AuthenticatedSessionController.php?controller=viajero&action=loginViajero" method="POST" class="space-y-5">
-            <input type="hidden" name="action" value="loginViajero">
+        <form action="{{ route('login') }}" method="POST" class="space-y-5">
+            @csrf
 
             @if(session('error'))
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg text-sm">

@@ -17,31 +17,37 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 */
 
 Route::get('/', [AppController::class, 'index'])->name('home');
-Route::get('/login',function () {
+Route::get('/login', function () {
     return view('login'); // llama a la vista de login  en auth.login 
 })->name('login');
 //register
 
-Route::get('/register',function () {
+Route::get('/register', function () {
     return view('register'); // llama a la vista de register  en register 
 })->name('register');
 
- //reserva
- Route::get('/reserva', function () {
-     return view('reserva'); // llama a la vista de reserva
- })->name('reserva');
+//reserva
+Route::get('/reserva', function () {
+    return view('reserva'); // llama a la vista de reserva
+})->name('reserva');
+
+//dashboard
+Route::get('/dashboard', function () {
+    return view('dashboard'); // llama a la vista de dashboard
+})->name('dashboard');
 
 
+// Route::post('/crearReserva', [AuthenticatedSessionController::class, 'create'])->name('crearReserva');
 
 
 
 
 Route::get('/home', function () {
-  // Redirecciona a login si no hay sesión
-  if (!session()->has('usuario')) {
-      return redirect()->route('login');
-  }
-  return view('home');
+    // Redirecciona a login si no hay sesión
+    if (!session()->has('usuario')) {
+        return redirect()->route('login');
+    }
+    return view('home');
 })->name('home');
 
 /*
@@ -55,4 +61,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });*/
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
