@@ -10,10 +10,8 @@ class AppController extends Controller
     {
         return view('home');
     }
-   /* public function login()
+    public function login()
     {
         return view('login'); // Llama a la vista de login 
-    }*/
-    
+    }
 }
-

@@ -21,9 +21,13 @@
 
                 <!-- Menú de navegación -->
                 <div class="flex justify-end space-y-4 flex space-x-4">
+                    <span class="border-l border-blue-500 my-2"></span>
                     <a href="{{ route('reserva') }}" class="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-500 transition-colors duration-300 shadow-md">
                         Reserva
-                    </a><a href="{{ route('login') }}" class="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-500 transition-colors duration-300 shadow-md">
+                    </a>
+                    <span class="border-l border-blue-500 my-2"></span>
+
+                    <a href="{{ route('login') }}" class="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-500 transition-colors duration-300 shadow-md">
                         Login
                     </a>
                     <a href="{{ route('register') }}" class="px-4 py-2 bg-green-600 rounded-lg hover:bg-green-500 transition-colors duration-300 shadow-md">
@@ -37,9 +41,9 @@
     <!-- Contenido principal centrado -->
     <main class="flex-grow flex flex-col items-center justify-center py-20 px-4">
         <div class="max-w-4xl text-center">
-            <h2 class="text-5xl font-extrabold text-blue-800 mb-6 animate-fade-in">
+            <h1 class="text-5xl font-extrabold text-blue-800 mb-6 animate-fade-in">
                 Bienvenido a ISLA TRANSFERS
-            </h2>
+            </h1>
             <p class="text-xl text-blue-700 mb-8 max-w-2xl mx-auto">
                 Disfruta de la calidad, confianza y confort en cada viaje.
             </p>
