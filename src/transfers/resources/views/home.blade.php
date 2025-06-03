@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>ISLA TRANSFERS funcionadno </title>
+    <title>ISLA TRANSFERS </title>
     @vite('resources/css/app.css')
 </head>
 
@@ -26,7 +26,6 @@
                         Reserva
                     </a>
                     <span class="border-l border-blue-500 my-2"></span>
-
                     <a href="{{ route('login') }}" class="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-500 transition-colors duration-300 shadow-md">
                         Login
                     </a>

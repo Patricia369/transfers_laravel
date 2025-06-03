@@ -14,4 +14,21 @@ class AppController extends Controller
     {
         return view('login'); // Llama a la vista de login 
     }
+
+    public function crearReserva()
+    {
+        return view('home'); // Llama a la vista de crear reserva
+    }
+    
+    /**
+     * Handle an incoming authentication request.
+     */
+    // public function store(LoginRequest $request): RedirectResponse
+    // {
+    //     // $request->authenticate();
+
+    //     $request->session()->regenerate();
+
+    //     return redirect()->intended(RouteServiceProvider::HOME);
+    // }
 }

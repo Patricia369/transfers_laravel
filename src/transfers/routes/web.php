@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\ReservaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,11 +37,18 @@ Route::get('/dashboard', function () {
     return view('dashboard'); // llama a la vista de dashboard
 })->name('dashboard');
 
+// Ruta comisiones
+Route::get('/comisiones', function () {
+    return view('comisiones'); // llama a la vista de comisiones
+})->name('comisiones');
 
 // Route::post('/crearReserva', [AuthenticatedSessionController::class, 'create'])->name('crearReserva');
 
+Route::post('/crearReserva', [ReservaController::class, 'crearReserva'])->name('crearReserva');
 
-
+//mostrar reservas
+Route::get('/mostrarPorLocalizador', [ReservaController::class, 'mostrarPorLocalizador'])->name('reservaXlocalizador');
+Route::get('/mostrarReservas', [ReservaController::class, 'mostrarReservas'])->name('mostrarReservas');
 
 Route::get('/home', function () {
     // Redirecciona a login si no hay sesión
