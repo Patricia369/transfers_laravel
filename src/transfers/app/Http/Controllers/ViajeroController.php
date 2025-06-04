@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Viajero;
+use Illuminate\Support\Facades\Hash;
 
 class ViajeroController extends Controller
 {
@@ -69,4 +70,38 @@ class ViajeroController extends Controller
         $viajero->delete();
         return $viajero; 
     }
+    public function loginViajero(Request $request){
+     $rol = str_contains($request->email, '@admin') ? 'admin' : 'usuario';
+
+         // Validar los datos de entrada
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required|string'
+    ]);
+    // Buscar al usuario
+    $usuario = Viajero::where('email', $request->email)->first();
+    // Verificar si el usuario existe
+    if (!$usuario) {
+        return redirect()->back()->withErrors(['email' => 'Sin registro de usuario.'])->withInput();
+
+    }
+     // Verificar contraseña
+    if (Hash::check($request->password, $usuario->password)) {
+        // Guardar datos en la sesión
+        session([
+            'usuario' => $usuario->email,
+            'nombre' => $usuario->nombre,
+            'rol' => str_contains($usuario->email, '@admin') ? 'admin' : 'usuario',
+            'admin' => str_contains($usuario->email, '@admin'),
+        ]);
+        // Redirigir según el rol
+        if ($rol === 'admin') {
+            return redirect()->route('dashboard')->with('success', 'Bienvenido, administrador.');
+        } else {
+            return redirect()->route('coorporativo')->with('success', 'Bienvenido, coorporativo.');
+        }
+    } else {
+        return redirect()->back()->withErrors(['password' => 'Contraseña incorrecta'])->withInput();
+    }
+}
 }

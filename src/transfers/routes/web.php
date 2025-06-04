@@ -37,6 +37,10 @@ Route::get('/reserva', function () {
 Route::get('/dashboard', function () {
     return view('dashboard'); // llama a la vista de dashboard
 })->name('dashboard');
+// coorporativo
+Route::get('/coorporativo', function () {
+    return view('coorporativo'); // llama a la vista de coorporativo
+})->name('coorporativo');
 
 // Ruta comisiones
 Route::get('/comisiones', function () {
@@ -52,6 +56,9 @@ Route::post('/crearViajero', [ViajeroController::class, 'crearViajero'])->name('
 Route::get('/mostrarPorLocalizador', [ReservaController::class, 'mostrarPorLocalizador'])->name('reservaXlocalizador');
 Route::get('/mostrarReservas', [ReservaController::class, 'mostrarReservas'])->name('mostrarReservas');
 Route::get('/mostrarViajeros', [ViajeroController::class, 'mostrarViajeros'])->name('mostrarViajeros');
+
+//login 
+Route ::post('/login-viajero', [ViajeroController::class, 'loginViajero'])->name('login.viajero');
 
 Route::get('/home', function () {
     // Redirecciona a login si no hay sesión

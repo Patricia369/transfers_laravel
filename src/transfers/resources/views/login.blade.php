@@ -14,7 +14,7 @@
             <p class="text-gray-600 mt-2">Inicia sesión en tu cuenta</p>
         </div>
 
-        <form action="{{ route('login') }}" method="POST" class="space-y-5">
+        <form action="{{ route('login.viajero') }}" method="POST" class="space-y-5">
             @csrf
 
             @if(session('error'))
