@@ -78,6 +78,11 @@
                     <th class="border px-4 py-2">Localizador</th>
                     <th class="border px-4 py-2">Email Cliente</th>
                     <th class="border px-4 py-2">Fecha Entrada</th>
+                     <th class="border px-4 py-2">Numero vuelo entrada</th>
+                     <th class="border px-4 py-2">Fecha salida</th>
+                      <th class="border px-4 py-2">Hora salida</th>
+                      <th class="border px-4 py-2">Hora recogida</th>
+                       <th class="border px-4 py-2">Numero de viajeros</th>
                     <th class="border px-4 py-2">Destino</th>
                     <th class="border px-4 py-2">Vehículo</th>
                 </tr>
@@ -88,6 +93,11 @@
                         <td class="border px-4 py-2">{{ $reserva->localizador }}</td>
                         <td class="border px-4 py-2">{{ $reserva->email_cliente }}</td>
                         <td class="border px-4 py-2">{{ $reserva->fecha_entrada }}</td>
+                        <td class="border px-4 py-2">{{ $reserva->numero_vuelo_entrada }}</td>
+                        <td class="border px-4 py-2">{{ $reserva->fecha_vuelo_salida }}</td>
+                        <td class="border px-4 py-2">{{ $reserva->hora_salida }}</td>
+                        <td class="border px-4 py-2">{{ $reserva->hora_recogida }}</td>
+                        <td class="border px-4 py-2">{{ $reserva->num_viajeros }}</td>
                         <td class="border px-4 py-2">{{ $reserva->id_destino }}</td>
                         <td class="border px-4 py-2">{{ $reserva->id_vehiculo }}</td>
                     </tr>

@@ -11,23 +11,41 @@ class ViajeroController extends Controller
     {
         $viajeros = Viajero::all();
         
-        return response()->json($viajeros); 
+        return $viajeros; // Retorna la colección de viajeros
     }
     //crear viajero
-     public function createViajero(Request $request){
-         $request->validate([
-             'nombre' => 'required|string|max:100',
-             'apellido1' => 'required|string|max:100',
-             'apellido2' => 'nullable|string|max:100',
-             'direccion' => 'required|string|max:100',
-             'codigoPostal' => 'required|string|max:10',
-             'ciudad' => 'required|string|max:100',
-             'email' => 'required|email|unique:transfer_viajeros,email',
-             'password' => 'required|string|min:4|confirmed',
-         ]);
-            Viajero::createViajero($request->all());
-        return response()->json(['message' => 'Viajero creado correctamente'], 201);
-     }
+   public function crearViajero(Request $request)
+{
+   // dump($request->all());
+    $request->validate([
+        'nombre' => 'required|string|max:15',
+        'apellido1' => 'required|string|max:15',
+        'apellido2' => 'required|string|max:15',
+        'direccion' => 'required|string|max:100',
+        'codigoPostal' => 'required|string|max:8',
+        'ciudad' => 'required|string|max:20',
+        'pais' => 'required|string|max:20',
+        'email' => 'required|email|unique:transfer_viajeros,email',
+        'password' => 'required|string|min:4|confirmed',
+        
+    ]);
+    
+    // Crear el viajero
+    Viajero::create([
+        'nombre' => $request->nombre,
+        'apellido1' => $request->apellido1,
+        'apellido2' => $request->apellido2,
+        'direccion' => $request->direccion,
+        'codigoPostal' => $request->codigoPostal,
+        'ciudad' => $request->ciudad,
+        'pais' => $request->pais,
+        'email' => $request->email,
+        'password' => bcrypt($request->password), // Encriptar la contraseña
+    ]);
+    return redirect()->route('login')->with('success', 'Viajero creado correctamente.');
+}
+ 
+    
     //actualizar viajero
     public function updateViajero(Request $request, $id){
         $request->validate([
@@ -42,12 +60,12 @@ class ViajeroController extends Controller
         ]);
         $viajero = Viajero::findOrFail($id);
         $viajero->update($request->all());
-        return response()->json(['message' => 'Viajero actualizado correctamente'], 200);
+        return $viajero; 
     }
     //eliminar viajero
     public function deleteViajero($id){
         $viajero = Viajero::findOrFail($id);
         $viajero->delete();
-        return response()->json(['message' => 'Viajero eliminado correctamente'], 200);
+        return $viajero; 
     }
 }

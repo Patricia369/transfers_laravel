@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\ViajeroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,7 @@ Route::get('/comisiones', function () {
 // Route::post('/crearReserva', [AuthenticatedSessionController::class, 'create'])->name('crearReserva');
 
 Route::post('/crearReserva', [ReservaController::class, 'crearReserva'])->name('crearReserva');
+Route::post('/crearViajero', [ViajeroController::class, 'crearViajero'])->name('crearViajero');
 
 //mostrar reservas
 Route::get('/mostrarPorLocalizador', [ReservaController::class, 'mostrarPorLocalizador'])->name('reservaXlocalizador');
