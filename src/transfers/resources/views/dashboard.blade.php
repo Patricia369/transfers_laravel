@@ -41,23 +41,69 @@
         </form>
 
     </div>
-    @if(isset($reserva))
-    <h2>Reserva: {{ $reserva->localizador }}</h2>
-    <ul>
-        <li>Localizador: {{ $reserva->localizador }}</li>
-        <li>Cliente: {{ $reserva->email_cliente }}</li>
-        <li>fecha_entrada: {{ $reserva->fecha_entrada }}</li>
-        <li>Hora de entrada: {{ $reserva->hora_entrada }}</li>
-        <li>Nº de vuelo entrada: {{ $reserva->numero_vuelo_entrada }}</li>
-        <li>Origen vuelo: {{ $reserva->origen_vuelo_entrada }}</li>
-        <li>Fecha de salida: {{ $reserva->fecha_vuelo_salida }}</li>
-        <li>Hora de recogida: {{ $reserva->hora_recogida }}</li>
-        <li>Numero de viajeros: {{ $reserva->num_viajeros }}</li>
-        <li>Destino: {{ $reserva->id_destino }}</li>
-        <li>Vehículo: {{ $reserva->id_vehiculo }}</li>
-        <!-- Agrega más campos según tu necesidad -->
-    </ul>
+    <div class="max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-md mt-6">
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">Detalles de la Reserva</h1>
+        @if(isset($reserva))
+        <h2>Reserva: {{ $reserva->localizador }}</h2>
+        <ul>
+            <li>Localizador: {{ $reserva->localizador }}</li>
+            <li>Cliente: {{ $reserva->email_cliente }}</li>
+            <li>fecha_entrada: {{ $reserva->fecha_entrada }}</li>
+            <li>Hora de entrada: {{ $reserva->hora_entrada }}</li>
+            <li>Nº de vuelo entrada: {{ $reserva->numero_vuelo_entrada }}</li>
+            <li>Origen vuelo: {{ $reserva->origen_vuelo_entrada }}</li>
+            <li>Fecha de salida: {{ $reserva->fecha_vuelo_salida }}</li>
+            <li>Hora de recogida: {{ $reserva->hora_recogida }}</li>
+            <li>Numero de viajeros: {{ $reserva->num_viajeros }}</li>
+            <li>Destino: {{ $reserva->id_destino }}</li>
+            <li>Vehículo: {{ $reserva->id_vehiculo }}</li>
+            <!-- Agrega más campos según tu necesidad -->
+        </ul>
+        @endif
+    </div>
+    <div>
+        <form action="{{ route('mostrarReservas') }}" method="GET">
+            <button type="submit" class="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-500 transition-colors duration-300 shadow-md">
+                Ver todas las reservas
+            </button>
+        </form>
+    </div>
+    <div class="max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-md mt-6">
+    <h1 class="text-xl font-bold mb-4">Listado de Reservas</h1>
+
+    @if (isset($reservas) && count($reservas) > 0)
+        <table class="table-auto w-full border">
+            <thead>
+                <tr>
+                    <th class="border px-4 py-2">Localizador</th>
+                    <th class="border px-4 py-2">Email Cliente</th>
+                    <th class="border px-4 py-2">Fecha Entrada</th>
+                    <th class="border px-4 py-2">Destino</th>
+                    <th class="border px-4 py-2">Vehículo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($reservas as $reserva)
+                    <tr>
+                        <td class="border px-4 py-2">{{ $reserva->localizador }}</td>
+                        <td class="border px-4 py-2">{{ $reserva->email_cliente }}</td>
+                        <td class="border px-4 py-2">{{ $reserva->fecha_entrada }}</td>
+                        <td class="border px-4 py-2">{{ $reserva->id_destino }}</td>
+                        <td class="border px-4 py-2">{{ $reserva->id_vehiculo }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @else
+        <p>No hay reservas disponibles.</p>
     @endif
+</div>
+
+
+    </div>
+
+       
+    
 
 </body>
 

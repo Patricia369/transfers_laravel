@@ -73,11 +73,6 @@ class ReservaController extends Controller
         // Redirigir al panel o dashboard con mensaje
         return redirect()->route('dashboard')->with('success', 'Reserva creada correctamente.');
     }
-    public function mostrarReservas()
-    {
-        $reservas = Reserva::all();
-        return view('dashboard', ['reservas' => $reservas]);
-    }
 
     public function mostrarPorLocalizador(Request $request)
     {
@@ -89,7 +84,16 @@ class ReservaController extends Controller
             return redirect()->back()->with('error', 'No se encontró ninguna reserva con ese localizador.');
         }
 
-        // Pasar siempre 'reservas' como colección al dashboard
-        return view('dashboard', ['reservas' => collect([$reserva])]);
+        return view('dashboard', ['reserva' => $reserva]);
+    }
+    public function mostrarReservas()
+    {
+        $reservas = Reserva::mostrarReservas();
+
+        if ($reservas->isEmpty()) {
+            return redirect()->back()->with('error', 'No hay reservas registradas.');
+        }
+
+        return view('dashboard', ['reservas' => $reservas]);
     }
 }
