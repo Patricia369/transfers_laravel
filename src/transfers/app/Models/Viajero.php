@@ -57,4 +57,21 @@ class Viajero extends Model
             $this->email = $viajero['email'];
         }
 }
+public function mostrarViajeros()
+    {
+        return Viajero::all(); // Retorna todos los viajeros
+    }
+public function mostrarViajeroXemail($email)
+    {
+        return Viajero::where('email', $email)->first(); // Retorna el viajero por email
+    }
+
+    
+
+    public function eliminarViajero($id)
+    {
+        $viajero = Viajero::findOrFail($id);
+        $viajero->delete();
+        return response()->json(['message' => 'Viajero eliminado correctamente'], 200);
+    }
 }

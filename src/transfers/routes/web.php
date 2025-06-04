@@ -51,6 +51,7 @@ Route::post('/crearViajero', [ViajeroController::class, 'crearViajero'])->name('
 //mostrar reservas
 Route::get('/mostrarPorLocalizador', [ReservaController::class, 'mostrarPorLocalizador'])->name('reservaXlocalizador');
 Route::get('/mostrarReservas', [ReservaController::class, 'mostrarReservas'])->name('mostrarReservas');
+Route::get('/mostrarViajeros', [ViajeroController::class, 'mostrarViajeros'])->name('mostrarViajeros');
 
 Route::get('/home', function () {
     // Redirecciona a login si no hay sesión

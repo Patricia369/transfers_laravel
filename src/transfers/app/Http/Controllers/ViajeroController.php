@@ -6,13 +6,7 @@ use App\Models\Viajero;
 
 class ViajeroController extends Controller
 {
-    //listar viajero en funcion index de prueba
-    public function index()
-    {
-        $viajeros = Viajero::all();
-        
-        return $viajeros; // Retorna la colección de viajeros
-    }
+   
     //crear viajero
    public function crearViajero(Request $request)
 {
@@ -46,6 +40,13 @@ class ViajeroController extends Controller
 }
  
     
+     //listar viajero en funcion index de prueba
+    public function mostrarViajeros()
+    {
+        $viajeros = Viajero::all();
+
+        return view('viajeros', compact('viajeros'));
+    }
     //actualizar viajero
     public function updateViajero(Request $request, $id){
         $request->validate([
