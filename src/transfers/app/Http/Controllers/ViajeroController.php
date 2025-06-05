@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Viajero;
+use App\Models\Reserva;
 use Illuminate\Support\Facades\Hash;
 
 class ViajeroController extends Controller
@@ -70,7 +71,8 @@ class ViajeroController extends Controller
         $viajero->delete();
         return $viajero; 
     }
-    public function loginViajero(Request $request){
+//LOGIN VIAJERO 
+ public function loginViajero(Request $request){
      $rol = str_contains($request->email, '@admin') ? 'admin' : 'usuario';
 
          // Validar los datos de entrada
@@ -104,4 +106,7 @@ class ViajeroController extends Controller
         return redirect()->back()->withErrors(['password' => 'Contraseña incorrecta'])->withInput();
     }
 }
+
+   
 }
+

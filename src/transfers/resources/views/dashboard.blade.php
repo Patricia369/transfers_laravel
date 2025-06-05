@@ -31,7 +31,7 @@
                 <a href="{{ route('mostrarViajeros') }}" class="px-4 py-2 bg-green-600 rounded-lg hover:bg-green-500 transition-colors duration-300 shadow-md">
                     Mostrar usuarios
                 </a>
-                <a href="{{ route('comisiones') }}" class="px-4 py-2 bg-green-600 rounded-lg hover:bg-green-500 transition-colors duration-300 shadow-md">
+                <a href="{{ route('comision') }}" class="px-4 py-2 bg-green-600 rounded-lg hover:bg-green-500 transition-colors duration-300 shadow-md">
                     Mostrar comisiones
                 </a>
             </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Reserva;
+use App\Models\Viajero;
 
 class ReservaController extends Controller
 {
@@ -70,8 +71,16 @@ class ReservaController extends Controller
         // Guardar la reserva usando Eloquent
         Reserva::create($data);
 
+        // Obtener el rol del usuario
+        $rol = session('usuario.rol', 'usuario'); // Por defecto, si no hay rol, se asume 'usuario'
+        if ($rol === 'admin') {
+            return redirect()->route('dashboard')->with('success', 'Reserva creada correctamente.');
+        } else {
+            return redirect()->route('login')->with('success', 'Reserva realizada correctamente. Se ha cerrado sesión.');
+        }
+
         // Redirigir al panel o dashboard con mensaje
-        return redirect()->route('dashboard')->with('success', 'Reserva creada correctamente.');
+       // return redirect()->route('dashboard')->with('success', 'Reserva creada correctamente.');
     }
 
     public function mostrarPorLocalizador(Request $request)

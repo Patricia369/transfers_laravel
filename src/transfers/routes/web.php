@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\ComisionController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ViajeroController;
 
@@ -43,9 +44,9 @@ Route::get('/coorporativo', function () {
 })->name('coorporativo');
 
 // Ruta comisiones
-Route::get('/comisiones', function () {
-    return view('comisiones'); // llama a la vista de comisiones
-})->name('comisiones');
+Route::get('/comision', function () {
+    return view('comision'); // llama a la vista de comisiones
+})->name('comision');
 
 // Route::post('/crearReserva', [AuthenticatedSessionController::class, 'create'])->name('crearReserva');
 
@@ -60,6 +61,8 @@ Route::get('/mostrarViajeros', [ViajeroController::class, 'mostrarViajeros'])->n
 //login 
 Route ::post('/login-viajero', [ViajeroController::class, 'loginViajero'])->name('login.viajero');
 
+//comisiones
+Route::get('/calcularComision/{id_hotel}', [ComisionController::class, 'calcularComision'])->name('comision.calcular');
 Route::get('/home', function () {
     // Redirecciona a login si no hay sesión
     if (!session()->has('usuario')) {
